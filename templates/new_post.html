@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Make a New Blog Post !</h1>
+    <form action ="/new_post" method='POST'>
+    <table>
+        <tr>
+            <td> <label>Title for your new post:</label></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="title"/></td>
+            <td><span class="error">{{title_error}}</span></td>
+        </tr>
+        <tr>
+            <td> <label>Post Text:</label></td>
+        </tr>
+
+        <tr>
+            <td><textarea name="body"></textarea></td>
+            <td><span class="error">{{body_error}}</span></td>
+        </tr>
+        
+        <tr>
+        <td><input type="submit" value='Create Post' /></td>
+        </tr>
+    </table>
+    </form>
+
+    <hr />
+{% endblock %}

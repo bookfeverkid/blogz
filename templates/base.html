@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <nav>
+<a href="/blog">Main Page</a> 
+<a href="/new_post">Create New Post</a> 
+</nav>
+    <style>
+        .error {
+                color: red;
+            }
+            
+        body {
+            height: 150vh;
+            background-image: url('https://codetheweb.blog/assets/img/posts/css-advanced-background-images/mountains.jpg');
+            background-size: 2000px;
+            -position-x: center;
+            background-position-y: center; 
+        }
+        h1  {text-align: center;
+        }
+
+    </style>
+
+    </head>
+    <body>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
