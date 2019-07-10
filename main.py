@@ -26,15 +26,17 @@ def index():
 
 @app.route('/blog')
 def Display_Blog():
-    posts =  Blog.query.all()
-    if request.method == 'POST':
-        entry_title = request.form['title']
-        entry_body = request.form['body']
-        entry_id = int(request.form['id'])
+    post_id =request.args.get('id')
+    if post_id ==None:
+        posts =  Blog.query.all()
+        return render_template('blog.html', title="My Blog", posts=posts)
+    else:
+        post = Blog.query.get(post_id)
+        return render_template('entry.html', post=post, title="Blog Entry")
+    
         
 
-    return render_template('blog.html', title="My Blog", posts=posts)
-
+    
 @app.route('/new_post', methods =['POST', 'GET'])
 def new_post():
     if request.method == 'POST':
