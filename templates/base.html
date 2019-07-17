@@ -2,9 +2,13 @@
 <html>
     <head>
     <nav>
-<a href="/blog">Main Page</a> 
-<a href="/new_post">Create New Post</a> 
-</nav>
+    <a href="/index">Home</a> 
+    <a href="/new_post">Create New Post</a> 
+    <a href="/logout">Log Out</a>
+    <a href="/login">Log In</a>
+    </nav>
+    <title>{%block title %} {% endblock %}</title>
+    <h1 align="center">{%block header %} {% endblock %}</h1>
     <style>
         .error {
                 color: red;
@@ -24,6 +28,16 @@
 
     </head>
     <body>
+        <div>
+        
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+    <ul style="list-style: none;">
+    {% for category,message in messages %}
+        <li class="{{category}}">{{message}}</li>
+    {% endfor %}
+    </ul>
+    {% endwith %}
 
         {% block content %}
         {% endblock %}
