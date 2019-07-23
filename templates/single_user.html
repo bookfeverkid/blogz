@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Blog Post by User {% endblock %}
+{% block header %} Welcome to {{user.email}}'s blog{% endblock %}
+{% block content %}
+      <!-- <h1>I should only show for a single user's posts</h1> -->
+       {% for post in posts %}
+             <a href="/blog?id={{post.id}}"><h3>{{post.title}}</h3></a>
+             <p>{{post.body}}</p>
+             <p class="blog-owner">written by <a href= "/user_blog?id={{ user.id }}" > {{user.email}}</p>
+             </br> 
+       {% endfor %}      
+{% endblock %}

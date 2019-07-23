@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <!-- <h1> I am used to also show a single post????</h1> -->
+    <h2>{{single_post.title}}</h2>
     
-    <h1>{{post.title}}</h1>
-    <p>{{post.body}}</p>
+    <p>{{single_post.body}}</p>
+
+    <p class="blog-owner">written by <a href= "/user_blog?id={{ user.id }}" > {{user.email}}</p>
                
 {% endblock %}

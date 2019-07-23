@@ -1,18 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1> My Blog</h1>
+<h2> Recent Blog Posts</h2>
 {% if posts|length == 0 %}
        <p>No blog posts yet.</p>
        {% else %}
 
-          {% for post in posts %}
+           {% for post in posts %}
                 <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
                 <p>{{post.body}}</p>
+                {% for all_users in user %}
+                  {% if all_users.id == post.owner_id %}
+                  <p class="blog-owner">written by <a href= "/user_blog?id={{ all_users.id}}" > {{all_users.email}}</p>
+                  {% endif %}
+                  {% endfor %}     
                 </br> 
           {% endfor %}
-              
-       {%  endif %}
+{% endif %}         
+       
 
 
 {% endblock %}
